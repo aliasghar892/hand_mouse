@@ -13,7 +13,7 @@ BaseOptions = mp.tasks.BaseOptions
 HandLandmarker = mp.tasks.vision.HandLandmarker
 HandLandmarkerOptions = mp.tasks.vision.HandLandmarkerOptions
 VisionRunningMode = mp.tasks.vision.RunningMode
-model = "hand_landmarker.task"
+model = "models/hand_landmarker.task"
 
 RESULT = None
 
