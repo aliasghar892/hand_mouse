@@ -64,9 +64,9 @@ with HandLandmarker.create_from_options(options) as landmarker:
 
                     prevPoseX = RESULT.hand_landmarks[0][i].x
                     prevPoseY = RESULT.hand_landmarks[0][i].y
-
-                    mouse.move(
-                        round(-moveDiffX), round(moveDiffY), absolute=False)
+                    if (abs(moveDiffX) > 1 and abs(moveDiffY) > 1):
+                        mouse.move(
+                            round(-moveDiffX), round(moveDiffY), absolute=False)
 
                 if (i == 4):
                     four_pos = (
