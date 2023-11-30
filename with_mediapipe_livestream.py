@@ -33,7 +33,7 @@ with HandLandmarker.create_from_options(options) as landmarker:
     cam = cv2.VideoCapture(0)
     correct, frame = cam.read()
 
-    sensitivity = 3000
+    sensitivity = 1000
     prevPoseX = 0
     prevPoseY = 0
     entered = False  # hand entered in camera or not
@@ -77,20 +77,20 @@ with HandLandmarker.create_from_options(options) as landmarker:
                 if (i == 16):
                     sixteen_pos = (
                         RESULT.hand_landmarks[0][i].x, RESULT.hand_landmarks[0][i].y)
-                if (i == 8):
-                    twenty_pos = (
+                if (i == 12):
+                    twelve_pos = (
                         RESULT.hand_landmarks[0][i].x, RESULT.hand_landmarks[0][i].y)
 
-            if (euclideanDistance(four_pos, eight_pos) < 0.07):
+            if (euclideanDistance(four_pos, eight_pos) < 0.1):
                 if (mouse.is_pressed("left") == False):
                     mouse.press("left")
             else:
                 mouse.release("left")
 
-            if (euclideanDistance(twelve_pos, four_pos) < 0.07):
+            if (euclideanDistance(twelve_pos, four_pos) < 0.1):
                 mouse.right_click()
 
-            if (euclideanDistance(sixteen_pos, four_pos) < 0.07):  # it will not work after some depth
+            if (euclideanDistance(sixteen_pos, four_pos) < 0.1):  # it will not work after some depth
                 break
 
         else:
